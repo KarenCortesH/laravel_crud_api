@@ -3,15 +3,13 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 //importamos el StudentController
-use App\Http\Controllers\Api\studentController;
+use App\Http\Controllers\Api\StudentController;
 
-Route::get('/students', [studentController::class, 'index']);
+Route::get('/students', [StudentController::class, 'index']);
 
-Route::post('/students',[studentController::class, 'store']);
-Route::put('/students/{id}', function () {
-    return "Update students";
-});
+Route::post('/students', [StudentController::class, 'store']);
 
-Route::put('/students/{id}', function () {
-    return "Delete students";
-});
+Route::delete('/students/{id}', [StudentController::class, 'destroy']);
+
+Route::put('/students/{id}', [StudentController::class, 'update']);
+

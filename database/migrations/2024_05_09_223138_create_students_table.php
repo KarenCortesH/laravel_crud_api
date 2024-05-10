@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //Crear Table de BD
-        Schema::create('student', function (BLueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('lastname');
             $table->string('email');
             $table->string('phone');
             $table->string('language');
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('students');
     }
 };
